@@ -67,16 +67,17 @@ function App() {
       }
   }
 
-  ps.forEach((item) => {
-    let [[r1, c1], [r2, c2], [r3, c3]] = item;
-    if(board[r1][c1] != '' && board[r1][c1] == board[r2][c2] && board[r2][c2] == board[r3][c3]){
-      if(hasWon != 'won'){
+  for (let i = 0; i < ps.length; i++) {
+    let [[r1, c1], [r2, c2], [r3, c3]] = ps[i];
+    if (board[r1][c1] != '' && board[r1][c1] == board[r2][c2] && board[r2][c2] == board[r3][c3]) {
+      if (hasWon != 'won') {
         setHasWon('won');
+        break;
       }
     }
-  })
+  } 
 
-  if(log.length == 9 && hasWon != 'Draw'){
+  if(log.length == 9 && hasWon == 'playing'){
       setHasWon('Draw');
   }
 
@@ -101,7 +102,6 @@ function App() {
     setHasWon('playing');
     setLog([]);
   }
-
 
 
   return (
