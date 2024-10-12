@@ -11,7 +11,7 @@ export default function Gameboard({log, board, setlog}){
                 {ar.map((item, col) => {
                     return (
                     <div key={String(row) + col} className="col-4 border border-secondary">
-                    <Tile val={item} row={row} col={col} log={log} setlog={setlog}/>
+                    <Tile val={item} row={row} col={col} log={log} setlog={setlog} board={board}/>
                     </div>
                     );
                 })}

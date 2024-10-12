@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Tile({val, row, col, log, setlog}){
+export default function Tile({val, row, col, log, setlog, board}){
     let currentPlayer = 'X';
 
     if(log.length > 0){
@@ -15,6 +15,9 @@ export default function Tile({val, row, col, log, setlog}){
     }
 
     function handleClick(row, col){
+        if(board[row][col] !== ''){
+            return
+        }
         let temp = {row:row, col:col, val:currentPlayer}
         setlog((current) => {
             return [temp, ...current]
