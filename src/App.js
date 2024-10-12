@@ -29,9 +29,9 @@ function App() {
 
   let activePlayer = playerNames[0];
   let currentPlayer = '';
-  if(log.length != 0){
+  if(log.length !== 0){
     currentPlayer = log[0].val;
-    if(currentPlayer == 'X'){
+    if(currentPlayer === 'X'){
       activePlayer = playerNames[1]
       currentPlayer = playerNames[0]
     }
@@ -69,28 +69,28 @@ function App() {
 
   for (let i = 0; i < ps.length; i++) {
     let [[r1, c1], [r2, c2], [r3, c3]] = ps[i];
-    if (board[r1][c1] != '' && board[r1][c1] == board[r2][c2] && board[r2][c2] == board[r3][c3]) {
-      if (hasWon != 'won') {
+    if (board[r1][c1] !== '' && board[r1][c1] === board[r2][c2] && board[r2][c2] === board[r3][c3]) {
+      if (hasWon !== 'won') {
         setHasWon('won');
         break;
       }
     }
   } 
 
-  if(log.length == 9 && hasWon == 'playing'){
+  if(log.length === 9 && hasWon === 'playing'){
       setHasWon('Draw');
   }
 
   let text = 'something wrong';
-  if(hasWon != 'playing'){
+  if(hasWon !== 'playing'){
     text = 'OOPS! Game is Draw!'
-    if(hasWon == 'won'){
+    if(hasWon === 'won'){
       text = `Hurray! ${currentPlayer} Won the game`
     }
   }
 
   if(dialog.current != null){
-  if(hasWon != 'playing'){
+  if(hasWon !== 'playing'){
     dialog.current.showModal();
   }
   else{

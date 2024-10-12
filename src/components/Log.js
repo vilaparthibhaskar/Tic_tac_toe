@@ -7,7 +7,7 @@ export default function Log({log, player1, player2}){
             {log.map((item, index) =>
             {
                 let currentPlayer = player1;
-                if(item['val'] == 'O'){
+                if(item['val'] === 'O'){
                     currentPlayer = player2;
                 }
                 return (
